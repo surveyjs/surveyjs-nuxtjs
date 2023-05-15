@@ -1,15 +1,15 @@
 <template>
-  <div id="surveyCreatorContainer"></div>
+  <div id="surveyCreator"></div>
 </template>
 
 <script>
-import * as SurveyCreator from "survey-creator";
-import "survey-creator/survey-creator.css";
+import { SurveyCreator } from "survey-creator-knockout";
+import "survey-core/defaultV2.min.css";
+import "survey-creator-core/survey-creator-core.min.css";
 
-import * as SurveyKo from "survey-knockout";
+import { Serializer } from "survey-core";
 
-SurveyCreator.StylesManager.applyTheme("default");
-SurveyKo.Serializer.addProperty("question", "tag:number");
+Serializer.addProperty("question", "tag:number");
 
 export default {
   name: "survey-creator",
@@ -17,18 +17,24 @@ export default {
     return {};
   },
   mounted() {
-    let options = { showEmbededSurveyTab: true };
-    this.surveyCreator = new SurveyCreator.SurveyCreator(
-      "surveyCreatorContainer",
-      options
-    );
-    this.surveyCreator.saveSurveyFunc = function() {
+    const creatorOptions = {
+      showLogicTab: true,
+      isAutoSave: true
+    };
+    const creator = new SurveyCreator(creatorOptions);
+
+    creator.saveSurveyFunc = function() {
       console.log(JSON.stringify(this.text));
     };
+    creator.render("surveyCreator");
   }
+  
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#surveyCreator {
+  height: 100vh;
+  width: 100vw;
+}
 </style>

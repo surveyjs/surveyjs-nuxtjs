@@ -1,30 +1,23 @@
 {
-  "name": "T5972-spa",
+  "name": "Y",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate",
-    "test": "jest"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/content": "^1.9.0",
-    "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/axios": "^5.12.2",
-    "core-js": "^3.6.5",
-    "nuxt": "^2.14.6",
-    "survey-creator": "^1.8.22"
+    "core-js": "^3.25.3",
+    "nuxt": "^2.15.8",
+    "survey-creator-knockout": "^1.9.87",
+    "vue": "^2.7.10",
+    "vue-server-renderer": "^2.7.10",
+    "vue-template-compiler": "^2.7.10"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.6",
-    "@nuxt/typescript-build": "^2.0.3",
-    "@vue/test-utils": "^1.1.0",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^26.5.0",
-    "jest": "^26.5.0",
-    "ts-jest": "^26.4.1",
-    "vue-jest": "^3.0.4"
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0"
   }
 }
