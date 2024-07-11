@@ -1,75 +1,38 @@
-# Nuxt 3 Minimal Starter
+# SurveyJS Form Builder + Nuxt Demo Example
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This demo shows how to add [SurveyJS Form Builder / Survey Creator](https://surveyjs.io/survey-creator/documentation/overview) to a Nuxt application.
 
-## Setup
-
-Make sure to install the dependencies:
+## Run the Application
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+git clone https://github.com/surveyjs/surveyjs-nuxtjs.git
+cd surveyjs-nuxtjs
+npm i
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Open http://localhost:3000 in your web browser.
 
-Build the application for production:
+## How to add SurveyJS Form Builder to your Nuxt application 
 
-```bash
-# npm
-npm run build
 
-# pnpm
-pnpm run build
+1. Install the `survey-creator-vue` npm package:
+   
+    ```bash
+    npm install survey-creator-vue --save
+    ```
 
-# yarn
-yarn build
+2. Create a file in the [`plugins`](./plugins/) directory and install SurveyJS Vue plugins in this file using the `nuxtApp.vueApp.use()` method.
+3. Open the [`next.config.ts`](./nuxt.config.ts) file and do the following in it:
+   1. List the plugin file in the `plugins` array.
+   2. List SurveyJS style sheets in the `css` array.
+   3. Disable server-side rendering.
+4. Create a component and configure Survey Creator in it (see the [`components/SurveyCreator.vue`](./components/SurveyCreator.vue) file).
+5. Render the component on a page (see the [`app.vue`](./app.vue) file).
 
-# bun
-bun run build
-```
+## SurveyJS Resources
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [Website](https://surveyjs.io/)
+- [Documentation](https://surveyjs.io/survey-creator/documentation/overview)
+- [Starter Demos](https://surveyjs.io/survey-creator/examples/free-nps-survey-template/reactjs)
+- [What's New](https://surveyjs.io/stay-updated/major-updates/2023)
