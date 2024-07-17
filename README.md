@@ -26,9 +26,8 @@ Open http://localhost:3000 in your web browser.
 3. Open the [`next.config.ts`](./nuxt.config.ts) file and do the following in it:
    1. List the plugin file in the `plugins` array.
    2. List SurveyJS style sheets in the `css` array.
-   3. Disable server-side rendering.
 4. Create a component and configure Survey Creator in it (see the [`components/SurveyCreator.vue`](./components/SurveyCreator.vue) file).
-5. Render the component on a page (see the [`app.vue`](./app.vue) file).
+5. Add the component to a page (see the [`app.vue`](./app.vue) file). In this example, the component is wrapped in the `<ClientOnly>` tag because Survey Creator uses `localStorage` to save and restore survey JSON schemas. If your application doesn't use this functionality, you can render Survey Creator on the server.
 
 ## SurveyJS Resources
 

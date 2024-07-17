@@ -1,6 +1,8 @@
 <template>
   <div id="surveyCreator">
-    <SurveyCreator />
+    <ClientOnly fallback-tag="div" fallback="Loading Survey Creator...">
+      <SurveyCreator />
+    </ClientOnly>
   </div>
 </template>
 
