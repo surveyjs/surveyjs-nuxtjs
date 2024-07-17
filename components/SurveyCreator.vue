@@ -1,40 +1,35 @@
-<template>
-  <div id="surveyCreator"></div>
-</template>
+<script setup lang="ts">
+import type { ICreatorOptions } from "survey-creator-core";
+import { SurveyCreatorModel } from "survey-creator-core";
 
-<script>
-import { SurveyCreator } from "survey-creator-knockout";
-import "survey-core/defaultV2.min.css";
-import "survey-creator-core/survey-creator-core.min.css";
+const creatorOptions: ICreatorOptions = {
+  showLogicTab: true,
+  isAutoSave: true
+};
 
-import { Serializer } from "survey-core";
+const defaultJson = {
+  pages: [{
+    name: "Name",
+    elements: [{
+      name: "FirstName",
+      title: "Enter your first name:",
+      type: "text"
+    }, {
+      name: "LastName",
+      title: "Enter your last name:",
+      type: "text"
+    }]
+  }]
+};
 
-Serializer.addProperty("question", "tag:number");
-
-export default {
-  name: "survey-creator",
-  data() {
-    return {};
-  },
-  mounted() {
-    const creatorOptions = {
-      showLogicTab: true,
-      isAutoSave: true
-    };
-    const creator = new SurveyCreator(creatorOptions);
-
-    creator.saveSurveyFunc = function() {
-      console.log(JSON.stringify(this.text));
-    };
-    creator.render("surveyCreator");
-  }
-  
+const creator = new SurveyCreatorModel(creatorOptions);
+creator.text = window.localStorage.getItem("survey-json") || JSON.stringify(defaultJson);
+creator.saveSurveyFunc = (saveNo: number, callback: Function) => { 
+  window.localStorage.setItem("survey-json", creator.text);
+  callback(saveNo, true);
 };
 </script>
 
-<style scoped>
-#surveyCreator {
-  height: 100vh;
-  width: 100vw;
-}
-</style>
+<template>
+  <SurveyCreatorComponent :model="creator" />
+</template>

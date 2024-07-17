@@ -1,69 +1,37 @@
-# Y
+# SurveyJS Form Builder + Nuxt Demo Example
 
-## Build Setup
+This demo shows how to add [SurveyJS Form Builder / Survey Creator](https://surveyjs.io/survey-creator/documentation/overview) to a Nuxt application.
+
+## Run the Application
 
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+git clone https://github.com/surveyjs/surveyjs-nuxtjs.git
+cd surveyjs-nuxtjs
+npm i
+npm run dev
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+Open http://localhost:3000 in your web browser.
 
-## Special Directories
-
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
-
-### `assets`
-
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+## How to add SurveyJS Form Builder to your Nuxt application 
 
 
-### `pages`
+1. Install the `survey-creator-vue` npm package:
+   
+    ```bash
+    npm install survey-creator-vue --save
+    ```
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+2. Create a file in the [`plugins`](./plugins/) directory and install SurveyJS Vue plugins in this file using the `nuxtApp.vueApp.use()` method.
+3. Open the [`next.config.ts`](./nuxt.config.ts) file and do the following in it:
+   1. List the plugin file in the `plugins` array.
+   2. List SurveyJS style sheets in the `css` array.
+4. Create a component and configure Survey Creator in it (see the [`components/SurveyCreator.vue`](./components/SurveyCreator.vue) file).
+5. Add the component to a page (see the [`app.vue`](./app.vue) file). In this example, the component is wrapped in the `<ClientOnly>` tag because Survey Creator uses `localStorage` to save and restore survey JSON schemas. If your application doesn't use this functionality, you can render Survey Creator on the server.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+## SurveyJS Resources
 
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+- [Website](https://surveyjs.io/)
+- [Documentation](https://surveyjs.io/survey-creator/documentation/overview)
+- [Starter Demos](https://surveyjs.io/survey-creator/examples/free-nps-survey-template/reactjs)
+- [What's New](https://surveyjs.io/stay-updated/major-updates/2023)
