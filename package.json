@@ -12,6 +12,7 @@
   "dependencies": {
     "nuxt": "^3.12.3",
     "survey-creator-vue": "latest",
+    "ace-builds": "latest",
     "vue": "latest"
   }
 }

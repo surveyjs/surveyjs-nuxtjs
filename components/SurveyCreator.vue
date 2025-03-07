@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import type { ICreatorOptions } from "survey-creator-core";
 import { SurveyCreatorModel } from "survey-creator-core";
+// Enable Ace Editor in the JSON Editor tab
+import "ace-builds/src-noconflict/ace";
+import "ace-builds/src-noconflict/ext-searchbox";
 
 const creatorOptions: ICreatorOptions = {
-  showLogicTab: true,
-  isAutoSave: true
+  autoSaveEnabled: true
 };
 
 const defaultJson = {

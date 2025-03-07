@@ -15,7 +15,6 @@ Open http://localhost:3000 in your web browser.
 
 ## How to add SurveyJS Form Builder to your Nuxt application 
 
-
 1. Install the `survey-creator-vue` npm package:
    
     ```bash
