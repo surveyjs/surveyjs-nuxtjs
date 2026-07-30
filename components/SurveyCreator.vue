@@ -1,37 +1,41 @@
 <script setup lang="ts">
-import type { ICreatorOptions } from "survey-creator-core";
-import { SurveyCreatorModel } from "survey-creator-core";
-// Enable Ace Editor in the JSON Editor tab
-import "ace-builds/src-noconflict/ace";
-import "ace-builds/src-noconflict/ext-searchbox";
+import { shallowRef } from 'vue'
+import type { ICreatorOptions } from 'survey-creator-core'
+import { registerCreatorTheme, SurveyCreatorModel } from 'survey-creator-core'
+import SurveyTheme from 'survey-core/themes'
+import { SurveyCreatorComponent } from 'survey-creator-vue'
+import { json as defaultJson } from '~/data/survey_json.js'
+import 'survey-core/survey-core.min.css'
+import 'survey-creator-core/survey-creator-core.min.css'
+import 'ace-builds/src-noconflict/ace'
+import 'ace-builds/src-noconflict/ext-searchbox'
 
-const creatorOptions: ICreatorOptions = {
-  autoSaveEnabled: true
-};
+registerCreatorTheme(SurveyTheme)
 
-const defaultJson = {
-  pages: [{
-    name: "Name",
-    elements: [{
-      name: "FirstName",
-      title: "Enter your first name:",
-      type: "text"
-    }, {
-      name: "LastName",
-      title: "Enter your last name:",
-      type: "text"
-    }]
-  }]
-};
+const props = defineProps<{
+  json?: object
+  options?: ICreatorOptions
+}>()
 
-const creator = new SurveyCreatorModel(creatorOptions);
-creator.text = window.localStorage.getItem("survey-json") || JSON.stringify(defaultJson);
-creator.saveSurveyFunc = (saveNo: number, callback: Function) => { 
-  window.localStorage.setItem("survey-json", creator.text);
-  callback(saveNo, true);
-};
+const defaultCreatorOptions: ICreatorOptions = {
+  showTranslationTab: true,
+}
+
+const creator = shallowRef(
+  (() => {
+    const model = new SurveyCreatorModel(props.options || defaultCreatorOptions)
+    model.JSON = props.json || defaultJson
+    model.saveSurveyFunc = (no: number, callback: (num: number, status: boolean) => void) => {
+      console.log(JSON.stringify(model.JSON))
+      callback(no, true)
+    }
+    return model
+  })(),
+)
 </script>
 
 <template>
-  <SurveyCreatorComponent :model="creator" />
+  <div class="creator-wrap">
+    <SurveyCreatorComponent :model="creator" />
+  </div>
 </template>

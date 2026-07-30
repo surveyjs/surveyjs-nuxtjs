@@ -1,36 +1,42 @@
-# SurveyJS Form Builder + Nuxt Demo Example
+# SurveyJS + Nuxt Quickstart Template
 
-This demo shows how to add [SurveyJS Form Builder / Survey Creator](https://surveyjs.io/survey-creator/documentation/overview) to a Nuxt application.
+SurveyJS is a set of JavaScript components that allow you and your users to build surveys / forms, store them in your database, and visualize survey results for data analysis. This quick start template uses [Nuxt](https://nuxt.com/) and the following SurveyJS components:
 
-## Run the Application
+- [SurveyJS Form Library](https://surveyjs.io/form-library/documentation/overview)
+- [Survey Creator / Form Builder](https://surveyjs.io/survey-creator/documentation/overview)
+- [SurveyJS PDF Generator](https://surveyjs.io/pdf-generator/documentation/overview)
+- [SurveyJS Dashboard](https://surveyjs.io/dashboard/documentation/overview)
+
+> This template uses SurveyJS **v3** (`3.0.0-beta.8`).
+>
+> Form Library and PDF Generator are server-rendered. Survey Creator and Dashboard use `ClientOnly` because they access browser APIs (`navigator` / `document`) during setup.
+
+## Run the application
 
 ```bash
-git clone https://github.com/surveyjs/surveyjs-nuxtjs.git
-cd surveyjs-nuxtjs
+git clone https://github.com/surveyjs/surveyjs-nuxt.git
+cd surveyjs-nuxt
 npm i
 npm run dev
 ```
 
-Open http://localhost:3000 in your web browser.
+Open http://localhost:3000/ in your web browser.
 
-## How to add SurveyJS Form Builder to your Nuxt application 
+## Template structure
 
-1. Install the `survey-creator-vue` npm package:
-   
-    ```bash
-    npm install survey-creator-vue --save
-    ```
+This template covers most basic use cases. You can find code examples for them in the following files:
 
-2. Create a file in the [`plugins`](./plugins/) directory and install SurveyJS Vue plugins in this file using the `nuxtApp.vueApp.use()` method.
-3. Open the [`next.config.ts`](./nuxt.config.ts) file and do the following in it:
-   1. List the plugin file in the `plugins` array.
-   2. List SurveyJS style sheets in the `css` array.
-4. Create a component and configure Survey Creator in it (see the [`components/SurveyCreator.vue`](./components/SurveyCreator.vue) file).
-5. Add the component to a page (see the [`app.vue`](./app.vue) file). In this example, the component is wrapped in the `<ClientOnly>` tag because Survey Creator uses `localStorage` to save and restore survey JSON schemas. If your application doesn't use this functionality, you can render Survey Creator on the server.
-
-## SurveyJS Resources
-
-- [Website](https://surveyjs.io/)
-- [Documentation](https://surveyjs.io/survey-creator/documentation/overview)
-- [Starter Demos](https://surveyjs.io/survey-creator/examples/free-nps-survey-template/reactjs)
-- [What's New](https://surveyjs.io/stay-updated/major-updates/2023)
+- Create a standalone survey
+  - [data/survey_json.js](data/survey_json.js)
+  - [components/SurveyForm.vue](components/SurveyForm.vue)
+- Add Survey Creator to a page
+  - [components/SurveyCreator.vue](components/SurveyCreator.vue)
+- Export a survey to a PDF document
+  - [pages/pdf-export.vue](pages/pdf-export.vue)
+- Visualize survey results
+  - As charts
+    - [data/dashboard_data.js](data/dashboard_data.js)
+    - [components/DashboardPanel.vue](components/DashboardPanel.vue)
+  - As a table
+    - [data/dashboard_data.js](data/dashboard_data.js)
+    - [components/DashboardTabulator.vue](components/DashboardTabulator.vue)
