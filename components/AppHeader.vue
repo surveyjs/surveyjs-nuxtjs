@@ -11,7 +11,7 @@ const links = [
 <template>
   <header class="app-header">
     <NuxtLink to="/" class="brand">
-      <img src="/favicon.svg" width="28" height="28" alt="" />
+      <img src="/favicon.ico" width="28" height="28" alt="" />
       SurveyJS + Nuxt
     </NuxtLink>
     <nav>

@@ -59,8 +59,7 @@ export default defineNuxtConfig({
           content:
             'Quick start template for SurveyJS Form Library, Survey Creator, Dashboard, and PDF Generator in Nuxt',
         },
-      ],
-      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+      ]
     },
   },
 })

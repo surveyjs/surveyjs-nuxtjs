@@ -6,7 +6,7 @@ import jsPDF from 'jspdf'
 import { applyPlugin } from 'jspdf-autotable'
 import { data, json } from '~/data/dashboard_data.js'
 import 'survey-analytics/survey.analytics.tabulator.css'
-import 'tabulator-tables/dist/css/tabulator.min.css'
+import 'tabulator-tables/dist/css/tabulator.css'
 
 applyPlugin(jsPDF)
 
@@ -14,11 +14,11 @@ const summaryEl = shallowRef<HTMLElement | null>(null)
 
 onMounted(() => {
   const survey = new Model(json)
-  const vizPanel = new Tabulator(survey, data, {
+  const tableView = new Tabulator(survey, data, {
     jspdf: jsPDF,
   })
   if (summaryEl.value) {
-    vizPanel.render(summaryEl.value)
+    tableView.render(summaryEl.value)
   }
 })
 </script>

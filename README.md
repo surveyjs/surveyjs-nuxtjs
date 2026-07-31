@@ -4,14 +4,12 @@ SurveyJS is a set of JavaScript components that allow you and your users to buil
 
 - [SurveyJS Form Library](https://surveyjs.io/form-library/documentation/overview)
 - [Survey Creator / Form Builder](https://surveyjs.io/survey-creator/documentation/overview)
-- [SurveyJS PDF Generator](https://surveyjs.io/pdf-generator/documentation/overview)
 - [SurveyJS Dashboard](https://surveyjs.io/dashboard/documentation/overview)
+- [SurveyJS PDF Generator](https://surveyjs.io/pdf-generator/documentation/overview)
 
-> This template uses SurveyJS **v3** (`3.0.0-beta.8`).
->
 > Form Library and PDF Generator are server-rendered. Survey Creator and Dashboard use `ClientOnly` because they access browser APIs (`navigator` / `document`) during setup.
 
-## Run the application
+## Run the Application
 
 ```bash
 git clone https://github.com/surveyjs/surveyjs-nuxt.git
@@ -22,7 +20,7 @@ npm run dev
 
 Open http://localhost:3000/ in your web browser.
 
-## Template structure
+## Template Structure
 
 This template covers most basic use cases. You can find code examples for them in the following files:
 
@@ -40,3 +38,9 @@ This template covers most basic use cases. You can find code examples for them i
   - As a table
     - [data/dashboard_data.js](data/dashboard_data.js)
     - [components/DashboardTabulator.vue](components/DashboardTabulator.vue)
+
+## Related Resources
+
+- [SurveyJS Website](https://surveyjs.io/)
+- [SurveyJS Documentation](https://surveyjs.io/documentation)
+- [What's New in SurveyJS](https://surveyjs.io/WhatsNew)
